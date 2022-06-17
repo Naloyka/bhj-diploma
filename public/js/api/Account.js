@@ -9,21 +9,12 @@
    * Получает информацию о счёте
    * */
 
-   static URL = '/account';
+   static URL = '/account'; 
 
-  static get(id = '', callback){
-
-    this.getURL = this.URL + `/${id}`; //формирование адреса для обращения на сервер, из которого необходимо получить определённый счёт
-
-    createRequest({
-      url: this.getURL,
-      method: 'GET',
-      responseType: 'json',
-      data,  
-      callback  
-    });
-    
-    callback(err, response); 
-
-  };
+  /**
+   * Получает информацию о счёте
+   * */
+  static get(id, callback){
+    return createRequest({ method: 'GET', url: this.URL + "/" + id, callback });
+  }
 };
